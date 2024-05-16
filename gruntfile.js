@@ -39,6 +39,10 @@ module.exports = function(grunt){
                         {
                             match: 'ENDERECO_DO_JS',
                             replacement: '../src/scripts/main.js'
+                        },
+                        {
+                            match: 'ENDERECO_DA_IMAGEM',
+                            replacement: '../src/images/to-do icon.png'
                         }
                     ]
                 },
@@ -61,6 +65,10 @@ module.exports = function(grunt){
                         {
                             match: 'ENDERECO_DO_JS',
                             replacement: './scripts/main.min.js'
+                        },
+                        {
+                            match: 'ENDERECO_DA_IMAGEM',
+                            replacement: '../src/images/to-do icon.png'
                         }
                     ]
                 },
@@ -104,6 +112,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-clean');
 
 
-    grunt.registerTask('default', [ 'watch']);
+    grunt.registerTask('default', [ 'replace:dev']);
     grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean', 'uglify'])
 }
