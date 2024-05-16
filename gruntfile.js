@@ -68,7 +68,7 @@ module.exports = function(grunt){
                         },
                         {
                             match: 'ENDERECO_DA_IMAGEM',
-                            replacement: './images/to-do icon.png'
+                            replacement: './images/img.png'
                         }
                     ]
                 },
