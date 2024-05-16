@@ -89,7 +89,7 @@ module.exports = function(grunt){
                     collapseWhitespace: true
                 },
                 files: {
-                    'prebuild/index.html': 'src/index.html'
+                    'prebuild/index.html': 'src/index.html',
                 }
             }
         },
@@ -98,7 +98,17 @@ module.exports = function(grunt){
         uglify: {
             target: {
                 files: {
-                    'dist/scripts/main.min.js' : 'src/scripts/main.js'
+                    'dist/scripts/main.min.js' : 'src/scripts/main.js',
+                }
+            }
+        },
+        imagemin: {
+            static: {
+                options: {
+                    optimizationLevel: 3,
+                },
+                files: {
+                    'dist/images/img.png': 'src/images/to-do icon.png',
                 }
             }
         }
@@ -110,8 +120,8 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
-
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.registerTask('default', [ 'watch']);
-    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean', 'uglify'])
+    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean', 'uglify', 'imagemin'])
 }
